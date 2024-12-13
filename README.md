@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,3 +49,7 @@ export default tseslint.config({
   },
 })
 ```
+=======
+# Puzzles
+A random How I Met Your Mother episode generator (Why is it called Puzzles?)
+>>>>>>> 270f83222ae63e86d24a1ea3c1d5561ff038b5f5
