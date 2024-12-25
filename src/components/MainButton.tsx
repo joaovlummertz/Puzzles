@@ -6,21 +6,10 @@ import { Episode } from "@/Types";
 const seriesId = 1100;
 
 function generateRandomSeason(selectedSeasons: Record<number, boolean>) {
-    let min = 9, max = 0;
-    
-    Object.keys(selectedSeasons).forEach((season) => {
-        // Checks if the season is selected
-        if (selectedSeasons[Number(season)]) {
-            if (Number(season) > max) {
-                max = Number(season);
-            }
-            if (Number(season) < min) {
-                min = Number(season);
-            }
-        }
-    });
+    const selected: number[] = [];
+    Object.entries(selectedSeasons).map(([season, isSelected]) => isSelected && selected.push(Number(season)));
 
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return selected[Math.floor(Math.random() * selected.length)];
 }
 
 export default function MainButton({
