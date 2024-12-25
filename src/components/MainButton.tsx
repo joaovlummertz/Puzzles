@@ -12,6 +12,13 @@ function generateRandomSeason(selectedSeasons: Record<number, boolean>) {
     return selected[Math.floor(Math.random() * selected.length)];
 }
 
+function isEmpty(selectedSeasons: Record<number, boolean>) {
+	const selected: number[] = [];
+    Object.entries(selectedSeasons).map(([season, isSelected]) => isSelected && selected.push(Number(season)));
+
+	return selected.length == 0;
+}
+
 export default function MainButton({
 	selectedSeasons,
 	setEpisode,
@@ -62,6 +69,7 @@ export default function MainButton({
 			<Button
 				type="button"
                 onClick={handleButtonClick}
+				disabled={isEmpty(selectedSeasons)}
 				className="px-4 py-6 bg-gray-800 text-dark-yellow font-semibold text-lg hover:bg-dark-yellow hover:text-gray-800"
 			>
 				Generate
