@@ -31,6 +31,7 @@ function App() {
 			<Header />
 			<Seasons
 				selectedSeasons={selectedSeasons}
+				setSelectedSeasons={setSelectedSeasons}
 				handleCheckboxClick={handleCheckboxClick}
 			/>
 			<Episode episode={episode} />
