@@ -4,8 +4,20 @@ import Header from "./components/Header";
 import Seasons from "./components/Seasons";
 import Episode from "./components/Episode";
 import MainButton from "./components/MainButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Episode as EpisodeType } from "./Types";
+
+// This is the series ID in the TMDB API
+const seriesId = 1100;
+
+function generateRandomSeason(selectedSeasons: Record<number, boolean>) {
+	const selected: number[] = [];
+	Object.entries(selectedSeasons).map(
+		([season, isSelected]) => isSelected && selected.push(Number(season))
+	);
+
+	return selected[Math.floor(Math.random() * selected.length)];
+}
 
 function createInitialState() {
 	const selectedSeasons: Record<number, boolean> = {};
@@ -18,13 +30,52 @@ function createInitialState() {
 function App() {
 	const [selectedSeasons, setSelectedSeasons] = useState(createInitialState());
 	const [episode, setEpisode] = useState<EpisodeType | null>(null);
-
+		
 	function handleCheckboxClick(season: number) {
 		setSelectedSeasons((prevSelectedSeasons) => ({
 			...prevSelectedSeasons,
 			[season]: !prevSelectedSeasons[season],
 		}));
 	}
+
+	function fetchEpisode() {
+		const seasonNumber = generateRandomSeason(selectedSeasons);
+		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?language=en-US`;
+		const options = {
+			method: "GET",
+			headers: {
+				accept: "application/json",
+				Authorization: "Bearer " + import.meta.env.VITE_API_TOKEN,
+			},
+		};
+
+		fetch(url, options)
+			.then((res) => res.json())
+			.then((json) => {
+				const episodeIndex = Math.floor(
+					Math.random() * (json.episodes.length - 1)
+				);
+
+				const newEpisode: EpisodeType = {
+					season: seasonNumber,
+					episodeNumber: episodeIndex,
+					image:
+						"http://image.tmdb.org/t/p/w500/" +
+						json.episodes[episodeIndex].still_path,
+					name: json.episodes[episodeIndex].name,
+					overview: json.episodes[episodeIndex].overview,
+					duration: json.episodes[episodeIndex].runtime,
+					airDate: json.episodes[episodeIndex].air_date,
+				};
+
+				setEpisode(newEpisode);
+			})
+			.catch((err) => console.error(err));
+	}
+
+	useEffect(() => {
+		fetchEpisode();
+	}, []);
 
 	return (
 		<>
@@ -35,7 +86,7 @@ function App() {
 				handleCheckboxClick={handleCheckboxClick}
 			/>
 			<Episode episode={episode} />
-			<MainButton selectedSeasons={selectedSeasons} setEpisode={setEpisode} />
+			<MainButton selectedSeasons={selectedSeasons} fetchEpisode={fetchEpisode} />
 		</>
 	);
 }
