@@ -23,7 +23,7 @@ export default function MainButton({
 	fetchEpisode: () => void;
 }) {
 	return (
-		<div className="w-full flex items-center justify-center">
+		<div className="w-full flex items-center justify-center my-4">
 			<TooltipProvider>
 				<Tooltip>
 					<TooltipTrigger asChild className="disabled:pointer-events-auto">
@@ -31,7 +31,7 @@ export default function MainButton({
 							type="button"
 							onClick={fetchEpisode}
 							disabled={isEmpty(selectedSeasons)}
-							className="px-4 py-6 bg-gray-800 text-dark-yellow font-semibold text-lg hover:bg-dark-yellow hover:text-gray-800"
+							className="px-4 py-6 bg-gray-800 text-dark-yellow font-semibold text-lg hover:bg-dark-yellow hover:text-gray-800 dark:bg-[#141414] dark:text-dark-yellow dark:border-2 dark:border-dark-yellow dark:hover:bg-dark-yellow dark:hover:text-[#141414]"
 						>
 							Generate
 						</Button>
