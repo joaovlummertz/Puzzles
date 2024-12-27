@@ -30,7 +30,7 @@ function createInitialState() {
 function App() {
 	const [selectedSeasons, setSelectedSeasons] = useState(createInitialState());
 	const [episode, setEpisode] = useState<EpisodeType | null>(null);
-		
+
 	function handleCheckboxClick(season: number) {
 		setSelectedSeasons((prevSelectedSeasons) => ({
 			...prevSelectedSeasons,
@@ -86,7 +86,10 @@ function App() {
 				handleCheckboxClick={handleCheckboxClick}
 			/>
 			<Episode episode={episode} />
-			<MainButton selectedSeasons={selectedSeasons} fetchEpisode={fetchEpisode} />
+			<MainButton
+				selectedSeasons={selectedSeasons}
+				fetchEpisode={fetchEpisode}
+			/>
 		</>
 	);
 }

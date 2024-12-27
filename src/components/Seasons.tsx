@@ -24,7 +24,7 @@ export default function Seasons({
 	return (
 		<section className="flex flex-col flex-wrap justify-center items-center font-poppins text-gray-600 text-lg mx-4">
 			<div className="flex gap-3">
-				<p className="text-gray-700 font-medium">Selected seasons: </p>
+				<p className="text-gray-700 dark:text-light-gray font-medium">Selected seasons: </p>
 				<ol className="flex flex-wrap gap-4 justify-center items-center">
 					{Object.entries(selectedSeasons).map(([season, isSelected]) => (
 						<li key={season} className="flex justify-center items-center gap-1.5">
@@ -33,12 +33,12 @@ export default function Seasons({
 								onClick={() => handleCheckboxClick(Number(season))}
 								checked={isSelected}
 							/>
-							<label className="font-light">Season {season}</label>
+							<label className="font-light dark:text-light-gray">Season {season}</label>
 						</li>
 					))}
 				</ol>
 			</div>
-			<div className="text-gray-700 pt-2 flex gap-4">
+			<div className="text-gray-700 dark:text-light-gray pt-2 flex gap-4">
 				<Button variant="ghost" className="text-base font-medium" onClick={() => handleSelectionClick(true)}>Select all</Button>
 				<Button variant="ghost" className="text-base font-medium" onClick={() => handleSelectionClick(false)}>Deselect all</Button>
 			</div>

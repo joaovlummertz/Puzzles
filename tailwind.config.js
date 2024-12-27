@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ["class"],
+    darkMode: ["selector"],
 	content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
   		colors: {
-  			'dark-yellow': '#ebc446'
+  			'dark-yellow': '#ebc446',
+			'light-gray': '#d7dadc'
   		},
   		fontFamily: {
   			poppins: 'Poppins, Arial, sans-serif'
