@@ -41,12 +41,12 @@ export default function Header() {
 				</div>
 				<button
 					onClick={handleButtonClick}
-					className="mr-3 absolute right-3 bg-[#f4f3f2] dark:bg-[#141414] !duration-500"
+					className="mr-3 absolute right-3 bg-[#f4f3f2] dark:bg-gray-900 !duration-500"
 				>
 					{isDarkMode ? (
 						<MdOutlineLightMode className="!h-6 !w-6 text-[#d7dadc] hover:text-dark-yellow"/>
 					) : (
-						<MdOutlineDarkMode className="!h-6 !w-6 text-[#141414] hover:text-dark-yellow"/>
+						<MdOutlineDarkMode className="!h-6 !w-6 text-gray-900 hover:text-dark-yellow"/>
 					)}
 				</button>
 			</nav>

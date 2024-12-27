@@ -6,7 +6,7 @@ export default function Episode({ episode }: { episode: EpisodeType | null }) {
     dayjs.extend(advancedFormat);
     return (
 		<section className="max-w-[1200px] min-h-[400px] flex mx-auto my-2">
-			<div className="font-poppins w-full h-full  mx-6 pb-4 rounded-sm bg-dark-yellow m-auto flex flex-col flex-grow">
+			<div className="font-poppins w-full h-full  mx-6 pb-4 rounded-sm bg-dark-yellow shadow m-auto flex flex-col flex-grow">
 				<h3 className="py-3 text-2xl font-semibold text-center text-gray-800">
 					{`Season ${episode?.season}, Episode ${(episode?.episodeNumber ?? 0) + 1}: ${episode?.name}`}
 				</h3>
