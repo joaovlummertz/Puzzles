@@ -1,5 +1,4 @@
 import { BsFillUmbrellaFill } from "react-icons/bs";
-import { Button } from "./ui/button";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useState } from "react";
 
@@ -40,17 +39,16 @@ export default function Header() {
 					<h1 className="text-dark-yellow">Puzzles</h1>
 					<BsFillUmbrellaFill color="#ebc446" />
 				</div>
-				<Button
+				<button
 					onClick={handleButtonClick}
-					variant="ghost"
-					className="absolute right-2 bg-[#f4f3f2] dark:bg-[#141414] hover:bg-white"
+					className="mr-3 absolute right-3 bg-[#f4f3f2] dark:bg-[#141414] !duration-500"
 				>
 					{isDarkMode ? (
-						<MdOutlineLightMode color="#d7dadc" className="!h-6 !w-6" />
+						<MdOutlineLightMode className="!h-6 !w-6 text-[#d7dadc] hover:text-dark-yellow"/>
 					) : (
-						<MdOutlineDarkMode color="#000000" className="!h-6 !w-6" />
+						<MdOutlineDarkMode className="!h-6 !w-6 text-[#141414] hover:text-dark-yellow"/>
 					)}
-				</Button>
+				</button>
 			</nav>
 			<h2 className="text-2xl font-medium text-gray-800 dark:text-light-gray text-center text-balance py-8">
 				Random How I Met Your Mother Episode Generator

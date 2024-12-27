@@ -39,8 +39,8 @@ export default function Seasons({
 				</ol>
 			</div>
 			<div className="text-gray-700 dark:text-light-gray pt-2 flex gap-4">
-				<Button variant="ghost" className="text-base font-medium" onClick={() => handleSelectionClick(true)}>Select all</Button>
-				<Button variant="ghost" className="text-base font-medium" onClick={() => handleSelectionClick(false)}>Deselect all</Button>
+				<Button variant="ghost" className="text-base font-medium dark:hover:text-dark-yellow" onClick={() => handleSelectionClick(true)}>Select all</Button>
+				<Button variant="ghost" className="text-base font-medium dark:hover:text-dark-yellow" onClick={() => handleSelectionClick(false)}>Deselect all</Button>
 			</div>
 		</section>
 	);
