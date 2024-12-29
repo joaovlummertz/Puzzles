@@ -34,7 +34,7 @@ export default function Header() {
 
 	return (
 		<header>
-			<nav className="flex items-center w-full pt-4 text-4xl font-poppins font-semibold">
+			<nav className="flex items-center w-full py-4 text-4xl font-poppins font-semibold">
 				<div className="flex flex-row gap-2.5 mx-auto z-10">
 					<h1 className="text-dark-yellow">Puzzles</h1>
 					<BsFillUmbrellaFill color="#ebc446" />
@@ -50,7 +50,7 @@ export default function Header() {
 					)}
 				</button>
 			</nav>
-			<h2 className="text-2xl font-medium text-gray-800 dark:text-light-gray text-center text-balance py-8">
+			<h2 className="text-xl md:text-2xl mx-2 font-medium text-gray-800 dark:text-light-gray text-center text-balance">
 				Random How I Met Your Mother Episode Generator
 			</h2>
 		</header>
