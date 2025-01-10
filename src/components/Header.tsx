@@ -50,7 +50,7 @@ export default function Header() {
 					)}
 				</button>
 			</nav>
-			<h2 className="text-xl md:text-2xl mx-2 font-medium text-gray-800 dark:text-light-gray text-center text-balance">
+			<h2 className="text-xl md:text-2xl 2xl:py-4 mx-4 font-semibold text-gray-800 dark:text-light-gray text-center text-balance">
 				Random How I Met Your Mother Episode Generator
 			</h2>
 		</header>
