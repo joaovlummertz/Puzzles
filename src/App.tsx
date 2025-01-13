@@ -30,6 +30,7 @@ function createInitialState() {
 function App() {
 	const [selectedSeasons, setSelectedSeasons] = useState(createInitialState());
 	const [episode, setEpisode] = useState<EpisodeType | null>(null);
+	const [isLoading, setIsLoading] = useState(true);
 
 	function handleCheckboxClick(season: number) {
 		setSelectedSeasons((prevSelectedSeasons) => ({
@@ -39,6 +40,7 @@ function App() {
 	}
 
 	function fetchEpisode() {
+		setIsLoading(true)
 		const seasonNumber = generateRandomSeason(selectedSeasons);
 		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?language=en-US`;
 		const options = {
@@ -68,6 +70,7 @@ function App() {
 					airDate: json.episodes[episodeIndex].air_date,
 				};
 
+				setIsLoading(false)
 				setEpisode(newEpisode);
 			})
 			.catch((err) => console.error(err));
@@ -85,7 +88,7 @@ function App() {
 				setSelectedSeasons={setSelectedSeasons}
 				handleCheckboxClick={handleCheckboxClick}
 			/>
-			<Episode episode={episode} />
+			<Episode episode={episode} isLoading={isLoading} />
 			<MainButton
 				selectedSeasons={selectedSeasons}
 				fetchEpisode={fetchEpisode}

@@ -1,14 +1,30 @@
 import { Episode as EpisodeType } from "@/Types";
-import dayjs from 'dayjs';
-import advancedFormat from "dayjs/plugin/advancedFormat"
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import ReactLoading from 'react-loading'
 
-export default function Episode({ episode }: { episode: EpisodeType | null }) {
-    dayjs.extend(advancedFormat);
-    return (
+export default function Episode({
+	episode,
+	isLoading,
+}: {
+	episode: EpisodeType | null;
+	isLoading: boolean;
+}) {
+	console.log(isLoading)
+	dayjs.extend(advancedFormat);
+	return isLoading ? (
 		<section className="max-w-[1200px] flex mx-auto 2xl:my-2">
-			<div className="font-poppins w-full h-full lg:my-8 mx-6 pb-4 rounded-sm bg-dark-yellow shadow m-auto flex flex-col flex-grow">
+			<div className="font-poppins w-full h-96 lg:my-8 mx-6 pb-4 rounded-sm bg-dark-yellow shadow m-auto flex items-center justify-center">
+				<ReactLoading type={"spin"} color="white" height={200} width={200} className="" />
+			</div>
+		</section>
+	) : (
+		<section className="max-w-[1200px] flex mx-auto 2xl:my-2">
+			<div className="font-poppins w-full min-h-96 lg:my-8 mx-6 pb-4 rounded-sm bg-dark-yellow shadow m-auto flex flex-col flex-grow">
 				<h3 className="py-3 text-2xl font-semibold text-center text-gray-800">
-					{`Season ${episode?.season}, Episode ${(episode?.episodeNumber ?? 0) + 1}: ${episode?.name}`}
+					{`Season ${episode?.season}, Episode ${
+						(episode?.episodeNumber ?? 0) + 1
+					}: ${episode?.name}`}
 				</h3>
 				<div className="grid lg:grid-cols-2 max-lg:gap-3 h-full">
 					<div className="flex items-center justify-center">
@@ -29,7 +45,7 @@ export default function Episode({ episode }: { episode: EpisodeType | null }) {
 						</p>
 						<p>
 							<span className="font-semibold">Aired on: </span>
-                            {dayjs(episode?.airDate).format("MMMM Do[,] YYYY")}
+							{dayjs(episode?.airDate).format("MMMM Do[,] YYYY")}
 						</p>
 					</div>
 				</div>
