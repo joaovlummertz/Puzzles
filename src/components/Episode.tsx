@@ -60,7 +60,7 @@ export default function Episode({
 						</p>
 						<p>
 							<span className="font-semibold">{t("airedOn")}: </span>
-							{dayjs(episode?.airDate).format(i18n.language == "en" ? "MMMM, Do, YYYY" : "LL")}
+							{dayjs(episode?.airDate).format(i18n.language == "en" ? "MMMM Do, YYYY" : "LL")}
 						</p>
 					</div>
 				</div>

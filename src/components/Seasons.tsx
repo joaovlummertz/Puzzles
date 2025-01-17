@@ -67,7 +67,7 @@ export default function Seasons({
 
 	return (
 		<section className="flex flex-col flex-wrap justify-center items-center font-poppins text-gray-600 text-lg mx-4 lg:mt-4">
-			<div className="flex flex-row flex-wrap items-center justify-center py-1">
+			<div className="flex flex-row flex-wrap items-center justify-center py-1 gap-y-2">
 				<Accordion type="single" collapsible className="lg:hidden">
 					<AccordionItem value="item-1">
 						<AccordionTrigger className="text-gray-800 dark:text-light-gray dark:hover:text-dark-yellow dark:hover:no-underline">
@@ -79,7 +79,7 @@ export default function Seasons({
 						</AccordionContent>
 					</AccordionItem>
 				</Accordion>
-				<p className="text-gray-700 dark:text-light-gray font-medium text-center text-balance pr-3 hidden lg:block pb-2">
+				<p className="text-gray-700 dark:text-light-gray font-medium text-center text-balance pr-3 hidden lg:block">
 					{t("selectedSeasons") + ":"}
 				</p>
 				<div className="max-lg:hidden">{seasonsCheckboxes}</div>

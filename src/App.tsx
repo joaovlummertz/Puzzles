@@ -42,7 +42,7 @@ function App() {
 	}
 
 	function fetchEpisode() {
-		setIsLoading(true)
+		setIsLoading(true);
 		const seasonNumber = generateRandomSeason(selectedSeasons);
 		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?language=${i18n.language}`;
 		const options = {
@@ -72,8 +72,39 @@ function App() {
 					airDate: json.episodes[episodeIndex].air_date,
 				};
 
-				setIsLoading(false)
+				setIsLoading(false);
 				setEpisode(newEpisode);
+			})
+			.catch((err) => console.error(err));
+	}
+
+	// This function is called when the language is changed
+	function updateCurrentEpisode() {
+		setIsLoading(true);
+		const seasonNumber = episode?.season ?? 0;
+		const episodeIndex = episode?.episodeNumber ?? 0;
+		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}/episode/${episodeIndex}?language=${i18n.language}`;
+		const options = {
+			method: "GET",
+			headers: {
+				accept: "application/json",
+				Authorization: "Bearer " + import.meta.env.VITE_API_TOKEN,
+			},
+		};
+
+		fetch(url, options)
+			.then((res) => res.json())
+			.then((json) => {
+				setEpisode((prevEpisode) => ({
+					season: seasonNumber,
+					episodeNumber: episodeIndex,
+					image: prevEpisode?.image ?? '',
+					name: json.name,
+					overview: json.overview,
+					duration: prevEpisode?.duration ?? 0,
+					airDate: prevEpisode?.airDate ?? '',
+				  }));
+				setIsLoading(false);
 			})
 			.catch((err) => console.error(err));
 	}
@@ -84,7 +115,7 @@ function App() {
 
 	return (
 		<>
-			<Header />
+			<Header updateCurrentEpisode={updateCurrentEpisode} />
 			<Seasons
 				selectedSeasons={selectedSeasons}
 				setSelectedSeasons={setSelectedSeasons}

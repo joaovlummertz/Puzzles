@@ -14,8 +14,9 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "@/components/ui/popover";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
 
 const languages = [
 	{
@@ -27,7 +28,7 @@ const languages = [
 	{
 		value: "pt",
 		label: "Português",
-		abbreviation: "PT-BR",
+		abbreviation: "PT",
 		countryCode: "BR",
 	},
 	{
@@ -38,7 +39,11 @@ const languages = [
 	},
 ];
 
-export default function LanguageSelector() {
+export default function LanguageSelector({
+	updateCurrentEpisode,
+}: {
+	updateCurrentEpisode: () => void;
+}) {
 	const { i18n } = useTranslation();
 
 	const [open, setOpen] = React.useState(false);
@@ -92,7 +97,8 @@ export default function LanguageSelector() {
 									onSelect={(currentValue) => {
 										setValue(currentValue);
 										setOpen(false);
-										i18n.changeLanguage(currentValue)
+										i18n.changeLanguage(currentValue);
+										updateCurrentEpisode();
 									}}
 								>
 									<ReactCountryFlag
@@ -105,6 +111,12 @@ export default function LanguageSelector() {
 										}}
 									/>
 									{language.abbreviation}
+									<Check
+										className={cn(
+											"ml-auto",
+											value === language.value ? "opacity-100" : "opacity-0"
+										)}
+									/>
 								</CommandItem>
 							))}
 						</CommandGroup>
