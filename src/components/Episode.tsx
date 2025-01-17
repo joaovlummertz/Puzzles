@@ -19,8 +19,7 @@ export default function Episode({
 
 	dayjs.extend(advancedFormat);
 	dayjs.extend(localizedFormat);
-	dayjs.locale(i18n.language); 
-	console.log(i18n.language)
+	dayjs.locale(i18n.language == "pt" ? "pt-br" : i18n.language); 
 
 	return isLoading ? (
 		<section className="max-w-[1200px] flex mx-auto 2xl:my-2">

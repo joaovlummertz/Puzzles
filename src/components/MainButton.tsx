@@ -34,7 +34,7 @@ export default function MainButton({
 							type="button"
 							onClick={fetchEpisode}
 							disabled={isEmpty(selectedSeasons)}
-							className="px-4 py-6 bg-gray-800 text-dark-yellow font-semibold text-lg hover:bg-dark-yellow hover:text-gray-800 dark:bg-gray-900 dark:text-dark-yellow dark:border-2 dark:border-dark-yellow dark:hover:bg-dark-yellow dark:hover:text-gray-900"
+							className="min-w-[120px] px-4 py-6 bg-gray-800 text-dark-yellow font-semibold text-lg hover:bg-dark-yellow hover:text-gray-800 dark:bg-gray-900 dark:text-dark-yellow dark:border-2 dark:border-dark-yellow dark:hover:bg-dark-yellow dark:hover:text-gray-900"
 						>
 							{t("generate")}
 						</Button>

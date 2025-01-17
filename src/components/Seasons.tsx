@@ -79,7 +79,7 @@ export default function Seasons({
 						</AccordionContent>
 					</AccordionItem>
 				</Accordion>
-				<p className="text-gray-700 dark:text-light-gray font-medium text-center text-balance pr-3 hidden lg:block py-2">
+				<p className="text-gray-700 dark:text-light-gray font-medium text-center text-balance pr-3 hidden lg:block pb-2">
 					{t("selectedSeasons") + ":"}
 				</p>
 				<div className="max-lg:hidden">{seasonsCheckboxes}</div>

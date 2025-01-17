@@ -6,6 +6,7 @@ import Episode from "./components/Episode";
 import MainButton from "./components/MainButton";
 import { useEffect, useState } from "react";
 import { Episode as EpisodeType } from "./Types";
+import { useTranslation } from "react-i18next";
 
 // This is the series ID in the TMDB API
 const seriesId = 1100;
@@ -31,6 +32,7 @@ function App() {
 	const [selectedSeasons, setSelectedSeasons] = useState(createInitialState());
 	const [episode, setEpisode] = useState<EpisodeType | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const { i18n } = useTranslation();
 
 	function handleCheckboxClick(season: number) {
 		setSelectedSeasons((prevSelectedSeasons) => ({
@@ -42,7 +44,7 @@ function App() {
 	function fetchEpisode() {
 		setIsLoading(true)
 		const seasonNumber = generateRandomSeason(selectedSeasons);
-		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?language=es`;
+		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?language=${i18n.language}`;
 		const options = {
 			method: "GET",
 			headers: {
