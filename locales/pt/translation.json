@@ -1,0 +1,14 @@
+{
+    "header": "Gerador de Episódios Aleatórios de Como Eu Conheci Sua Mãe",
+    "selectedSeasons": "Temporadas selecionadas",
+    "season": "Temporada",
+    "episode": "Episódio",
+    "selectAll": "Marcar todas",
+    "deselectAll": "Desmarcar todas",
+    "overview": "Visão geral",
+    "duration": "Duração",
+    "minutes": "minutos",
+    "airedOn": "Exibido em",
+    "generate": "Gerar",
+    "emptySelection": "Selecione pelo menos uma temporada para gerar um episódio"
+  }

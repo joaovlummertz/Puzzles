@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
 	Accordion,
 	AccordionContent,
@@ -16,6 +17,8 @@ export default function Seasons({
 	setSelectedSeasons: (value: Record<number, boolean>) => void;
 	handleCheckboxClick: (value: number) => void;
 }) {
+	const { t } = useTranslation();
+	
 	// If selectOption == true, select all seasons
 	// If selectOption == false, deselect all seasons
 	function handleSelectionClick(selectOption: boolean) {
@@ -36,7 +39,7 @@ export default function Seasons({
 						checked={isSelected}
 					/>
 					<label className="font-light dark:text-light-gray">
-						Season {season}
+						{t("season") + " " + season}
 					</label>
 				</li>
 			))}
@@ -50,25 +53,25 @@ export default function Seasons({
 				className="text-sm md:text-base font-medium dark:hover:text-dark-yellow"
 				onClick={() => handleSelectionClick(true)}
 			>
-				Select all
+				{t("selectAll")}
 			</Button>
 			<Button
 				variant="ghost"
 				className="text-sm md:text-base font-medium dark:hover:text-dark-yellow"
 				onClick={() => handleSelectionClick(false)}
 			>
-				Deselect all
+				{t("deselectAll")}
 			</Button>
 		</div>
 	);
 
 	return (
 		<section className="flex flex-col flex-wrap justify-center items-center font-poppins text-gray-600 text-lg mx-4 lg:mt-4">
-			<div className="flex flex-row flex-wrap items-center justify-center py-1">
+			<div className="flex flex-row flex-wrap items-center justify-center py-1 gap-y-2">
 				<Accordion type="single" collapsible className="lg:hidden">
 					<AccordionItem value="item-1">
 						<AccordionTrigger className="text-gray-800 dark:text-light-gray dark:hover:text-dark-yellow dark:hover:no-underline">
-							Selected seasons
+							{t("selectedSeasons")}
 						</AccordionTrigger>
 						<AccordionContent>
 							{seasonsCheckboxes}
@@ -77,7 +80,7 @@ export default function Seasons({
 					</AccordionItem>
 				</Accordion>
 				<p className="text-gray-700 dark:text-light-gray font-medium text-center text-balance pr-3 hidden lg:block">
-					Selected seasons:
+					{t("selectedSeasons") + ":"}
 				</p>
 				<div className="max-lg:hidden">{seasonsCheckboxes}</div>
 			</div>

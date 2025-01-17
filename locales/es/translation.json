@@ -1,0 +1,15 @@
+{
+    "header": "Generador de Episodios Aleatorios de Cómo Conocí a Tu Madre",
+    "selectedSeasons": "Temporadas seleccionadas",
+    "season": "Temporada",
+    "episode": "Episodio",
+    "selectAll": "Marcar todas",
+    "deselectAll": "Desmarcar todas",
+    "overview": "Resumen",
+    "duration": "Duración",
+    "minutes": "minutos",
+    "airedOn": "Emitido en",
+    "generate": "Generar",
+    "emptySelection": "Selecciona al menos una temporada para generar un episodio"
+  }
+  
