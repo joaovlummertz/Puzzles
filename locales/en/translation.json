@@ -1,0 +1,14 @@
+{
+    "header": "Random How I Met Your Mother Episode Generator",
+    "selectedSeasons": "Selected seasons",
+    "season": "Season",
+    "episode": "Episode",
+    "selectAll": "Select all",
+    "deselectAll": "Deselect all",
+    "overview": "Overview",
+    "duration": "Duration",
+    "minutes": "minutes",
+    "airedOn": "Aired on",
+    "generate": "Generate",
+    "emptySelection": "Select at least one season to generate an episode"
+}

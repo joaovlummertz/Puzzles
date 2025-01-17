@@ -42,7 +42,7 @@ function App() {
 	function fetchEpisode() {
 		setIsLoading(true)
 		const seasonNumber = generateRandomSeason(selectedSeasons);
-		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?language=en-US`;
+		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}?language=es`;
 		const options = {
 			method: "GET",
 			headers: {

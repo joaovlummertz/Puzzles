@@ -1,6 +1,7 @@
 import { BsFillUmbrellaFill } from "react-icons/bs";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function loadInitialTheme() {
 	// Checks for device preference	
@@ -18,6 +19,8 @@ function loadInitialTheme() {
 }
 
 export default function Header() {
+	const { t } = useTranslation();
+
 	const [isDarkMode, setIsDarkMode] = useState(loadInitialTheme());
 
 	function handleButtonClick() {
@@ -51,7 +54,7 @@ export default function Header() {
 				</button>
 			</nav>
 			<h2 className="text-xl md:text-2xl 2xl:py-4 mx-4 font-semibold text-gray-800 dark:text-light-gray text-center text-balance">
-				Random How I Met Your Mother Episode Generator
+				{t("header")}
 			</h2>
 		</header>
 	);

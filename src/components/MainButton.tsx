@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "./ui/button";
 import {
 	Tooltip,
@@ -22,6 +23,8 @@ export default function MainButton({
 	selectedSeasons: Record<number, boolean>;
 	fetchEpisode: () => void;
 }) {
+	const { t } = useTranslation();
+
 	return (
 		<div className="w-full flex items-center justify-center my-4">
 			<TooltipProvider>
@@ -33,12 +36,12 @@ export default function MainButton({
 							disabled={isEmpty(selectedSeasons)}
 							className="px-4 py-6 bg-gray-800 text-dark-yellow font-semibold text-lg hover:bg-dark-yellow hover:text-gray-800 dark:bg-gray-900 dark:text-dark-yellow dark:border-2 dark:border-dark-yellow dark:hover:bg-dark-yellow dark:hover:text-gray-900"
 						>
-							Generate
+							{t("generate")}
 						</Button>
 					</TooltipTrigger>
 					{isEmpty(selectedSeasons) && (
 						<TooltipContent>
-							<p>Select at least one season to generate an episode.</p>
+							<p>{t("emptySelection")}</p>
 						</TooltipContent>
 					)}
 				</Tooltip>
