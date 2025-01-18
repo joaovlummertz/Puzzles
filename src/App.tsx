@@ -83,7 +83,7 @@ function App() {
 		setIsLoading(true);
 		const seasonNumber = episode?.season ?? 0;
 		const episodeIndex = episode?.episodeNumber ?? 0;
-		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}/episode/${episodeIndex}?language=${i18n.language}`;
+		const url = `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNumber}/episode/${episodeIndex + 1}?language=${i18n.language}`;
 		const options = {
 			method: "GET",
 			headers: {
